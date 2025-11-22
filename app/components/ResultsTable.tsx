@@ -81,6 +81,21 @@ export default function ResultsTable({ results, categories }: ResultsTableProps)
 
   return (
     <div className="bg-white rounded-xl shadow-2xl overflow-hidden print:shadow-none print:rounded-none">
+      {/* Print-only Title and QR Code */}
+      <div className="hidden print:block relative pt-4 pb-6 mb-4 border-b-2 border-gray-800">
+        <h1 className="text-2xl font-bold text-gray-900 text-center">
+          Pikkurata{selectedCategory !== 'all' ? ` - ${selectedCategory}` : ''}
+        </h1>
+        {/* QR Code in top right */}
+        <div className="absolute top-2 right-4">
+          <img 
+            src="https://api.qrserver.com/v1/create-qr-code/?size=60x60&data=https://su-pisteet.kikka.re"
+            alt="QR Code - su-pisteet.kikka.re"
+            className="w-14 h-14"
+          />
+        </div>
+      </div>
+
       {/* Category Filter */}
       {categories.length > 0 && (
         <div className="bg-blue-600 p-4 border-b border-blue-700 no-print">

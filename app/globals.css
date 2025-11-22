@@ -42,7 +42,18 @@ body {
   /* Ensure table fits on page */
   table {
     width: 100% !important;
-    font-size: 10pt;
+    font-size: 8pt;
+  }
+  
+  /* Compact spacing for table cells */
+  th {
+    padding: 1px 2px !important;
+    line-height: 1.1 !important;
+  }
+  
+  td {
+    padding: 0.5px 1px !important;
+    line-height: 1.1 !important;
   }
   
   /* Remove shadows and rounded corners for print */
@@ -59,6 +70,26 @@ body {
   /* Avoid page breaks inside table rows */
   tr {
     page-break-inside: avoid;
+  }
+  
+  /* Smaller font sizes for print */
+  .text-sm {
+    font-size: 7pt !important;
+  }
+  
+  .text-xs {
+    font-size: 6pt !important;
+  }
+  
+  /* Compact the header area */
+  h1 {
+    font-size: 14pt !important;
+    margin: 0 !important;
+  }
+  
+  /* Minimize gaps */
+  div, span {
+    margin: 0 !important;
   }
 }
 
