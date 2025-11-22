@@ -106,7 +106,7 @@ export default function ResultsTable({ results, categories }: ResultsTableProps)
           <thead className="bg-blue-700">
             {/* First header row - parent columns */}
             <tr>
-              <th rowSpan={2} className="sticky left-0 z-20 bg-blue-700 px-2 py-2 text-left text-xs font-bold text-white uppercase tracking-wider shadow-[2px_0_5px_-2px_rgba(0,0,0,0.3)] border-r border-blue-600">
+              <th rowSpan={2} className="sticky left-0 z-20 bg-blue-700 px-2 py-2 text-left text-xs font-bold text-white uppercase tracking-wider shadow-[2px_0_5px_-2px_rgba(0,0,0,0.3)] border-r border-blue-600 min-w-[180px]">
                 Nimi / Sarja
               </th>
               <th colSpan={2} className="px-2 py-1 text-center text-xs font-bold text-blue-200 uppercase tracking-wider border-r border-blue-600">
@@ -146,20 +146,20 @@ export default function ResultsTable({ results, categories }: ResultsTableProps)
                 key={result.id || index}
                 className="group hover:bg-blue-50 transition-colors"
               >
-                <td className="sticky left-0 z-10 bg-white group-hover:bg-blue-50 px-2 py-2 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]">
+                <td className="sticky left-0 z-10 bg-white group-hover:bg-blue-50 px-2 py-2 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] min-w-[180px]">
                   <div className="flex items-center gap-2">
                     {/* Rotated Sarja badge */}
-                    <div className="flex items-center justify-center h-12 w-3.5">
+                    <div className="flex items-center justify-center h-12 w-3.5 flex-shrink-0">
                       <span className="px-0.5 py-1.5 text-[9px] font-bold rounded bg-blue-100 text-blue-800 whitespace-nowrap transform -rotate-90 origin-center">
                         {result.AgeCategoryCode || '-'}
                       </span>
                     </div>
                     {/* Name and Club */}
-                    <div className="flex-1 min-w-0">
-                      <div className="text-sm font-semibold text-gray-900">
+                    <div className="flex-1">
+                      <div className="text-sm font-semibold text-gray-900 whitespace-nowrap">
                         {result.FirstName} {result.LastName}
                       </div>
-                      <div className="text-xs text-gray-500">
+                      <div className="text-xs text-gray-500 truncate">
                         {result.Club || '-'}
                       </div>
                     </div>
