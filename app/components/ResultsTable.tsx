@@ -105,7 +105,7 @@ export default function ResultsTable({ results, categories }: ResultsTableProps)
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-blue-700">
             <tr>
-              <th className="px-2 py-2 text-left text-xs font-bold text-white uppercase tracking-wider">
+              <th className="sticky left-0 z-20 bg-blue-700 px-2 py-2 text-left text-xs font-bold text-white uppercase tracking-wider shadow-[2px_0_5px_-2px_rgba(0,0,0,0.3)]">
                 Nimi
               </th>
               <th className="px-2 py-2 text-center text-xs font-bold text-white uppercase tracking-wider">
@@ -135,7 +135,7 @@ export default function ResultsTable({ results, categories }: ResultsTableProps)
               <th className="px-2 py-2 text-center text-xs font-bold text-blue-200 uppercase tracking-wider">
                 Pisteet
               </th>
-              <th className="px-2 py-2 text-center text-xs font-bold text-yellow-300 uppercase tracking-wider bg-blue-800">
+              <th className="sticky right-0 z-20 bg-blue-800 px-2 py-2 text-center text-xs font-bold text-yellow-300 uppercase tracking-wider shadow-[-2px_0_5px_-2px_rgba(0,0,0,0.3)]">
                 Yhteensä
               </th>
             </tr>
@@ -147,9 +147,9 @@ export default function ResultsTable({ results, categories }: ResultsTableProps)
               return (
               <tr 
                 key={result.id || index}
-                className="hover:bg-blue-50 transition-colors"
+                className="group hover:bg-blue-50 transition-colors"
               >
-                <td className="px-2 py-2">
+                <td className="sticky left-0 z-10 bg-white group-hover:bg-blue-50 px-2 py-2 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]">
                   <div className="text-sm font-semibold text-gray-900">
                     {result.FirstName} {result.LastName}
                   </div>
@@ -186,7 +186,7 @@ export default function ResultsTable({ results, categories }: ResultsTableProps)
                 <td className="px-2 py-2 whitespace-nowrap text-sm text-center text-blue-700 font-semibold">
                   {formatTime(result.M500m_2_pisteet)}
                 </td>
-                <td className="px-2 py-2 whitespace-nowrap text-center bg-blue-100">
+                <td className="sticky right-0 z-10 bg-blue-100 px-2 py-2 whitespace-nowrap text-center shadow-[-2px_0_5px_-2px_rgba(0,0,0,0.1)]">
                   {partialTotal !== null ? (
                     <>
                       <div className="text-sm font-bold text-blue-900">
