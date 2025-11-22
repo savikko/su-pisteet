@@ -20,6 +20,22 @@ export default function ResultsTable({ results, categories }: ResultsTableProps)
     return time.toFixed(2);
   };
 
+  const formatRaceTime = (time: number | null) => {
+    if (time === null || time === undefined) return '-';
+    
+    const totalSeconds = time;
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    
+    if (minutes === 0) {
+      // Under 1 minute, just show seconds
+      return seconds.toFixed(2);
+    } else {
+      // 1 minute or more, show M:SS.ss
+      return `${minutes}:${seconds.toFixed(2).padStart(5, '0')}`;
+    }
+  };
+
   const formatDifference = (time: number | null, firstPlaceTime: number | null) => {
     if (time === null || time === undefined || firstPlaceTime === null || firstPlaceTime === undefined) {
       return null;
@@ -181,25 +197,25 @@ export default function ResultsTable({ results, categories }: ResultsTableProps)
                   </div>
                 </td>
                 <td className="px-1 py-2 whitespace-nowrap text-sm text-center text-gray-900 border-r border-gray-200">
-                  {formatTime(result.M300m_1_aika)}
+                  {formatRaceTime(result.M300m_1_aika)}
                 </td>
                 <td className="px-1 py-2 whitespace-nowrap text-sm text-center text-blue-700 font-semibold border-r border-gray-300">
                   {formatTime(result.M300m_1_pisteet)}
                 </td>
                 <td className="px-1 py-2 whitespace-nowrap text-sm text-center text-gray-900 border-r border-gray-200">
-                  {formatTime(result.M500m_1_aika)}
+                  {formatRaceTime(result.M500m_1_aika)}
                 </td>
                 <td className="px-1 py-2 whitespace-nowrap text-sm text-center text-blue-700 font-semibold border-r border-gray-300">
                   {formatTime(result.M500m_1_pisteet)}
                 </td>
                 <td className="px-1 py-2 whitespace-nowrap text-sm text-center text-gray-900 border-r border-gray-200">
-                  {formatTime(result.M300m_2_aika)}
+                  {formatRaceTime(result.M300m_2_aika)}
                 </td>
                 <td className="px-1 py-2 whitespace-nowrap text-sm text-center text-blue-700 font-semibold border-r border-gray-300">
                   {formatTime(result.M300m_2_pisteet)}
                 </td>
                 <td className="px-1 py-2 whitespace-nowrap text-sm text-center text-gray-900 border-r border-gray-200">
-                  {formatTime(result.M500m_2_aika)}
+                  {formatRaceTime(result.M500m_2_aika)}
                 </td>
                 <td className="px-1 py-2 whitespace-nowrap text-sm text-center text-blue-700 font-semibold border-r border-gray-300">
                   {formatTime(result.M500m_2_pisteet)}
