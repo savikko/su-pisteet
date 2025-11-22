@@ -104,37 +104,37 @@ export default function ResultsTable({ results, categories }: ResultsTableProps)
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-blue-700">
+            {/* First header row - parent columns */}
             <tr>
-              <th className="sticky left-0 z-20 bg-blue-700 px-2 py-2 text-left text-xs font-bold text-white uppercase tracking-wider shadow-[2px_0_5px_-2px_rgba(0,0,0,0.3)]">
+              <th rowSpan={2} className="sticky left-0 z-20 bg-blue-700 px-2 py-2 text-left text-xs font-bold text-white uppercase tracking-wider shadow-[2px_0_5px_-2px_rgba(0,0,0,0.3)] border-r border-blue-600">
                 Nimi / Sarja
               </th>
-              <th className="px-2 py-2 text-center text-xs font-bold text-blue-200 uppercase tracking-wider">
+              <th colSpan={2} className="px-2 py-1 text-center text-xs font-bold text-blue-200 uppercase tracking-wider border-r border-blue-600">
                 300m Pv 1
               </th>
-              <th className="px-2 py-2 text-center text-xs font-bold text-blue-200 uppercase tracking-wider">
-                Pisteet
-              </th>
-              <th className="px-2 py-2 text-center text-xs font-bold text-blue-200 uppercase tracking-wider">
+              <th colSpan={2} className="px-2 py-1 text-center text-xs font-bold text-blue-200 uppercase tracking-wider border-r border-blue-600">
                 500m Pv 1
               </th>
-              <th className="px-2 py-2 text-center text-xs font-bold text-blue-200 uppercase tracking-wider">
-                Pisteet
-              </th>
-              <th className="px-2 py-2 text-center text-xs font-bold text-blue-200 uppercase tracking-wider">
+              <th colSpan={2} className="px-2 py-1 text-center text-xs font-bold text-blue-200 uppercase tracking-wider border-r border-blue-600">
                 300m Pv 2
               </th>
-              <th className="px-2 py-2 text-center text-xs font-bold text-blue-200 uppercase tracking-wider">
-                Pisteet
-              </th>
-              <th className="px-2 py-2 text-center text-xs font-bold text-blue-200 uppercase tracking-wider">
+              <th colSpan={2} className="px-2 py-1 text-center text-xs font-bold text-blue-200 uppercase tracking-wider border-r border-blue-600">
                 500m Pv 2
               </th>
-              <th className="px-2 py-2 text-center text-xs font-bold text-blue-200 uppercase tracking-wider">
-                Pisteet
-              </th>
-              <th className="sticky right-0 z-20 bg-blue-800 px-2 py-2 text-center text-xs font-bold text-yellow-300 uppercase tracking-wider shadow-[-2px_0_5px_-2px_rgba(0,0,0,0.3)]">
+              <th rowSpan={2} className="sticky right-0 z-20 bg-blue-800 px-2 py-2 text-center text-xs font-bold text-yellow-300 uppercase tracking-wider shadow-[-2px_0_5px_-2px_rgba(0,0,0,0.3)]">
                 Yhteensä
               </th>
+            </tr>
+            {/* Second header row - sub columns */}
+            <tr>
+              <th className="px-1 py-1 text-center text-[10px] font-semibold text-blue-100 uppercase border-r border-blue-600">Aika</th>
+              <th className="px-1 py-1 text-center text-[10px] font-semibold text-blue-100 uppercase border-r border-blue-600">Pist.</th>
+              <th className="px-1 py-1 text-center text-[10px] font-semibold text-blue-100 uppercase border-r border-blue-600">Aika</th>
+              <th className="px-1 py-1 text-center text-[10px] font-semibold text-blue-100 uppercase border-r border-blue-600">Pist.</th>
+              <th className="px-1 py-1 text-center text-[10px] font-semibold text-blue-100 uppercase border-r border-blue-600">Aika</th>
+              <th className="px-1 py-1 text-center text-[10px] font-semibold text-blue-100 uppercase border-r border-blue-600">Pist.</th>
+              <th className="px-1 py-1 text-center text-[10px] font-semibold text-blue-100 uppercase border-r border-blue-600">Aika</th>
+              <th className="px-1 py-1 text-center text-[10px] font-semibold text-blue-100 uppercase">Pist.</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
@@ -149,8 +149,8 @@ export default function ResultsTable({ results, categories }: ResultsTableProps)
                 <td className="sticky left-0 z-10 bg-white group-hover:bg-blue-50 px-2 py-2 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]">
                   <div className="flex items-center gap-2">
                     {/* Rotated Sarja badge */}
-                    <div className="flex items-center justify-center h-12 w-5">
-                      <span className="px-1 py-2 text-[10px] font-bold rounded bg-blue-100 text-blue-800 whitespace-nowrap transform -rotate-90 origin-center">
+                    <div className="flex items-center justify-center h-12 w-3.5">
+                      <span className="px-0.5 py-1.5 text-[9px] font-bold rounded bg-blue-100 text-blue-800 whitespace-nowrap transform -rotate-90 origin-center">
                         {result.AgeCategoryCode || '-'}
                       </span>
                     </div>
@@ -165,28 +165,28 @@ export default function ResultsTable({ results, categories }: ResultsTableProps)
                     </div>
                   </div>
                 </td>
-                <td className="px-2 py-2 whitespace-nowrap text-sm text-center text-gray-900">
+                <td className="px-1 py-2 whitespace-nowrap text-sm text-center text-gray-900 border-r border-gray-200">
                   {formatTime(result.M300m_1_aika)}
                 </td>
-                <td className="px-2 py-2 whitespace-nowrap text-sm text-center text-blue-700 font-semibold">
+                <td className="px-1 py-2 whitespace-nowrap text-sm text-center text-blue-700 font-semibold border-r border-gray-300">
                   {formatTime(result.M300m_1_pisteet)}
                 </td>
-                <td className="px-2 py-2 whitespace-nowrap text-sm text-center text-gray-900">
+                <td className="px-1 py-2 whitespace-nowrap text-sm text-center text-gray-900 border-r border-gray-200">
                   {formatTime(result.M500m_1_aika)}
                 </td>
-                <td className="px-2 py-2 whitespace-nowrap text-sm text-center text-blue-700 font-semibold">
+                <td className="px-1 py-2 whitespace-nowrap text-sm text-center text-blue-700 font-semibold border-r border-gray-300">
                   {formatTime(result.M500m_1_pisteet)}
                 </td>
-                <td className="px-2 py-2 whitespace-nowrap text-sm text-center text-gray-900">
+                <td className="px-1 py-2 whitespace-nowrap text-sm text-center text-gray-900 border-r border-gray-200">
                   {formatTime(result.M300m_2_aika)}
                 </td>
-                <td className="px-2 py-2 whitespace-nowrap text-sm text-center text-blue-700 font-semibold">
+                <td className="px-1 py-2 whitespace-nowrap text-sm text-center text-blue-700 font-semibold border-r border-gray-300">
                   {formatTime(result.M300m_2_pisteet)}
                 </td>
-                <td className="px-2 py-2 whitespace-nowrap text-sm text-center text-gray-900">
+                <td className="px-1 py-2 whitespace-nowrap text-sm text-center text-gray-900 border-r border-gray-200">
                   {formatTime(result.M500m_2_aika)}
                 </td>
-                <td className="px-2 py-2 whitespace-nowrap text-sm text-center text-blue-700 font-semibold">
+                <td className="px-1 py-2 whitespace-nowrap text-sm text-center text-blue-700 font-semibold border-r border-gray-300">
                   {formatTime(result.M500m_2_pisteet)}
                 </td>
                 <td className="sticky right-0 z-10 bg-blue-100 px-2 py-2 whitespace-nowrap text-center shadow-[-2px_0_5px_-2px_rgba(0,0,0,0.1)]">
